@@ -1,0 +1,49 @@
+{% extends "home.html" %} {% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Subjects</th>
+                <th scope="col">Room No</th>
+                <th scope="col">Permission</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in teacherData %}
+            <tr>
+                <td>{{data.firstName}}</td>
+                <td>{{data.lastName}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.phone}}</td>
+                <td>
+                    {% for sub in subObj%} {% if data.id == sub.teacher.id%} {{sub.subject}} {% endif %} {% endfor %}
+
+                </td>
+                <td>{{data.roomNo}}</td>
+                <td>
+
+                    {% if data.permission %}
+                    <a class="btn btn-outline-primary permissionBtn" href="permission/{{data.id}}" role="button">Decline Permission</a> {% else %}
+                    <a class="btn btn-outline-success permissionBtn" href="permission/{{data.id}}" role="button">Accept Permission</a> {% endif %}
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+{% endblock content %}

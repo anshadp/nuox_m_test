@@ -1,0 +1,50 @@
+{% extends "home.html" %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 m-5">
+            <h3>Add a teacher</h3>
+            <b style="color: red;">{{msg}}</b>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input name="firstName" type="first" class="form-control" id="firstName" aria-describedby="firstHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">last Name</label>
+                    <input name="lastName" type="last" class="form-control" id="lastName" aria-describedby="lastHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone No</label>
+                    <input name="phone" type="number" class="form-control" id="phone">
+                </div>
+                <div class="mb-3">
+                    <label for="roomNo" class="form-label">Room No</label>
+                    <input name="roomNo" type="number" class="form-control" id="roomNo">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="password">
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subjects</label>
+                    <div id="emailHelp" class="form-text">You can add multiple subjects by separating comma.</div>
+                    <input name="subject" type="text" class="form-control" id="subject">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Profile Image</label>
+                    <input name="image" type="file" class="form-control" id="image">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

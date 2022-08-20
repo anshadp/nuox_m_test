@@ -1,0 +1,25 @@
+{% extends "index.html" %} {% block content %}
+<div class="card m-5 p-5" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{teacherData.image}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{teacherData.firstName}} {{teacherData.lastName}}</h5>
+                <h5 class="card-title">{{teacherData.email}}</h5>
+                <b>Phone: {{teacherData.phone}}</b><br>
+                <b>Room No: {{teacherData.roomNo}}</b><br>
+                <b>subjects: 
+                    {% for sub in subObj%} 
+                    {{sub.subject}}
+                    
+                    {% endfor %}
+
+                </b>
+
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>{% endblock content %}
